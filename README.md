@@ -2,7 +2,7 @@
 
 Follow the original [Airbnb Code Style](https://github.com/airbnb/javascript).
 
-This document contains only those rules which we decided to extend, to override or to add.
+This document describes only those rules which we decided to extend, to override or to add.
 
 TODO:
 
