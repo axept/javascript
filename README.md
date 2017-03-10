@@ -4,6 +4,10 @@ Follow the original [Airbnb Code Style](https://github.com/airbnb/javascript).
 
 This document describes only those rules which we decided to extend, to override or to add.
 
+Other Style Guides:
+
++ [React](https://github.com/axept/javascript/tree/master/react)
+
 TODO:
 
 + [ ] Make it as a shareable cards (Twitter, FB and other Social Media)
