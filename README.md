@@ -1,6 +1,6 @@
 # Axept JavaScript Style Guide
 
-Follow the original [Airbnb Code Style](https://github.com/airbnb/javascript).
+Follow the original [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
 
 This document describes only those rules which we decided to extend, to override or to add.
 
