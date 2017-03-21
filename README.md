@@ -192,6 +192,7 @@ if (rows) {
   return rows[0]
 } else {
   return false
+}
 
 
 // good
@@ -221,7 +222,7 @@ if (config) {
 
 ### Use dot syntax only for internal objects
 
-Seperate JSON data objects and internal runtime objects.
+Seperate importable/exportable JSON data objects and internal runtime objects.
 
 > [Google Closure Advanced Compilation](https://developers.google.com/closure/compiler/docs/api-tutorial3):
 > Whenever possible, use dot-syntax property names rather than quoted strings. Use quoted string property names only when you don't want Closure Compiler to rename a property at all. For example, to export a property you must use a quoted string. However, for properties used only within your compiled code, use dot syntax.
