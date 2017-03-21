@@ -31,27 +31,27 @@ Extends: [Section 15](https://github.com/airbnb/javascript#comparison-operators-
   
   > Why? The following example demonstrate how it could be misunderstood.
 
-   ```javascript
-    // bad
-    const query = { 'forward_url': '/' }
-    const targetURL = 'https://qwe.com/auth?' + (typeof query === 'string') ? query : JSON.stringify(query)
-
-    // Uncaught TypeError: split is not a function
-    // because type of targetURL is Object
-    const partsOfURL = targetURL.split('?')
+  ```javascript
+  // bad
+  const query = { 'forward_url': '/' }
+  const targetURL = 'https://qwe.com/auth?' + (typeof query === 'string') ? query : JSON.stringify(query)
+  
+  // Uncaught TypeError: split is not a function
+  // because type of targetURL is Object
+  const partsOfURL = targetURL.split('?')
     
     
-    // may be
-    const query = { 'forward_url': '/' }
-    const queryString = typeof query === 'string' ? query : JSON.stringify(query)
-    const targetURL = 'https://qwe.com/auth?' + queryString
+  // may be
+  const query = { 'forward_url': '/' }
+  const queryString = typeof query === 'string' ? query : JSON.stringify(query)
+  const targetURL = 'https://qwe.com/auth?' + queryString
     
     
-    // good
-    const query = { 'forward_url': '/' }
-    const queryString = (typeof query === 'string') ? query : JSON.stringify(query)
-    const targetURL = 'https://qwe.com/auth?' + queryString
-    ```
+  // good
+  const query = { 'forward_url': '/' }
+  const queryString = (typeof query === 'string') ? query : JSON.stringify(query)
+  const targetURL = 'https://qwe.com/auth?' + queryString
+  ```
 
 **[⬆ back to top](#contents)**
 
