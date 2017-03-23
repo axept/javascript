@@ -11,6 +11,7 @@ Other Style Guides:
 TODO:
 
 + [ ] Make it as a shareable cards (Twitter, FB and other Social Media)
++ [ ] Apply https://google.github.io/styleguide/javascriptguide.xml
 
 ## Contents
 
