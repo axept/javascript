@@ -172,6 +172,13 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
 
 ## Unsorted Yet
 
+### Do not use JavaScript "magic"
+
++ `!!a`
++ `a ~= b`
+
+etc
+
 ### Fetch and combinate seperation
 
 ```javascript
