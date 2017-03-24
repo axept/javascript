@@ -173,6 +173,20 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
 
 ## Unsorted Yet
 
+### Use brackets for expressions
+
+```javascript
+// bad
+const useSrcKey = _srcKey !== undefined || this._srcKey !== undefined
+const componentAsync = typeof src === 'function' ? src() : import(src)
+const isProduction = process.env['NODE_ENV'] === 'production'
+
+// good
+const useSrcKey = (_srcKey !== undefined) || (this._srcKey !== undefined)
+const componentAsync = (typeof src === 'function') ? src() : import(src)
+const isProduction = (process.env['NODE_ENV'] === 'production')
+```
+
 ### Do not use JavaScript "magic"
 
 + `!!a`
