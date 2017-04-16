@@ -339,3 +339,13 @@ return (
   <Text>&nbsp;</Text>
 )
 ```
+
+## Only one parameter possible in inline object as argument
+
+```
+// bad
+this.setState({ hasError, route })
+
+// good
+this.setState({ hasError })
+```
