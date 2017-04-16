@@ -342,7 +342,7 @@ return (
 
 ## Only one parameter possible in inline object as argument
 
-```
+```js
 // bad
 this.setState({ hasError, route })
 
