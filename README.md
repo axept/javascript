@@ -340,12 +340,25 @@ return (
 )
 ```
 
-## Only one parameter possible in inline object as argument
+## Do not mix expression in one-line objects as assignment
 
 ```js
 // bad
-this.setState({ hasError, route })
+this.setState({ hasErrors: true, route })
+
+
+// bad
+const state = { hasErrors: true, route }
+
 
 // good
-this.setState({ hasError })
+this.setState({ hasErrors, route })
+
+
+// good
+this.setState({ hasErrors: true })
+
+
+// good
+const state = { hasErrors, route }
 ```
