@@ -189,10 +189,21 @@ const isProduction = (process.env['NODE_ENV'] === 'production')
 
 ### Do not use JavaScript "magic"
 
-+ `!!a`
-+ `a ~= b`
+It makes source code harder not portable to other languages.
 
-etc
+```js
+// bad
+const b = !!a
+
+// bad
+const b = (~a.indexOf('k'))
+
+// good
+const b = Boolean(a)
+
+// good
+const b = (a.indexOf('k') >= 0)
+```
 
 ### Fetch and combinate seperation
 
