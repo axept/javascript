@@ -351,6 +351,30 @@ return (
 )
 ```
 
+## Static members should be declared in class body
+
+```javascript
+// bad
+
+Profile.propTypes = {
+  classes: PropTypes.object.isRequired,
+  handleClick: PropTypes.func,
+}
+
+
+// good
+
+class Profile extends Component {
+
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
+    handleClick: PropTypes.func,
+  } 
+  
+  // ...
+}
+```
+
 ## Do not mix expression in one-line objects as assignment
 
 ```js
