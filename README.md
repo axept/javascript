@@ -380,6 +380,51 @@ return (
 )
 ```
 
+## One empty line before and after function declaration
+
+No empty line needed after function declaration - if the following line is javascript brackets.
+
+```javascript
+// bad
+
+function a() {
+  return 1
+}
+const b = () => 2
+
+// bad
+
+class A {
+  a() {
+    return 1
+  }
+  b() {
+    return 2
+  }
+}
+
+// good
+
+function a() {
+  return 1
+}
+
+const b = () => 2
+
+// good
+
+class A {
+
+  a() {
+    return 1
+  }
+  
+  b() {
+    return 2
+  }
+}
+```
+
 ## Static members should be declared in class body
 
 ```javascript
