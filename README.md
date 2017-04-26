@@ -122,6 +122,29 @@ Extends: [Section 20](https://github.com/airbnb/javascript#semicolons)
   > Why? Almost all developers used to 80 characters. It's a very old practice. Now we have a wide screens and we used to seat a little bit more far from monitor. In this case we can use a bit more characters and code will be still readable.
   
   Read [this](http://softwareengineering.stackexchange.com/questions/312889/how-to-follow-the-80-character-limit-best-practice-while-writing-source-code) and [this](http://stackoverflow.com/questions/578059/studies-on-optimal-code-width) for more details.
+  
+  ```javascript
+  // bad
+  if ((this.props.suggestions.length === 0) && (newProps.suggestions.length > 0) && (newProps.autosuggestValue.length > 0) {
+  
+    return
+  }
+  
+  // good
+  const hasSuggestions = (this.props.suggestions.length === 0)
+  const willHaveSuggestions = (newProps.suggestions.length > 0)
+  if (hasSuggestions && willHaveSuggestions && (newProps.autosuggestValue.length > 0)) {
+    return
+  }
+  
+  // good
+  const hasSuggestions = (this.props.suggestions.length === 0)
+  const willHaveSuggestions = (newProps.suggestions.length > 0)
+  const willHaveAutosuggest = (newProps.autosuggestValue.length > 0)
+  if (hasSuggestions && willHaveSuggestions && willHaveAutosuggest) {
+    return
+  }
+  ```
 
 **[⬆ back to top](#contents)**
 
