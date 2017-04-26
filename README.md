@@ -380,20 +380,23 @@ return (
 )
 ```
 
-## One empty line before and after function declaration
+## One empty line before and after function or class declaration
 
-No empty line needed after function declaration - if the following line is javascript brackets.
+No empty line needed after function or class declaration - if the following line is javascript brackets.
 
 ```javascript
 // bad
 
+const x = 0
 function a() {
   return 1
 }
 const b = () => 2
 
+
 // bad
 
+const x = 0
 class A {
   a() {
     return 1
@@ -403,7 +406,10 @@ class A {
   }
 }
 
+
 // good
+
+const x = 0
 
 function a() {
   return 1
@@ -411,7 +417,10 @@ function a() {
 
 const b = () => 2
 
+
 // good
+
+const x = 0
 
 class A {
 
