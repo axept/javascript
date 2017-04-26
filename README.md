@@ -189,7 +189,7 @@ const isProduction = (process.env['NODE_ENV'] === 'production')
 
 ### Do not use JavaScript "magic"
 
-It makes source code harder not portable to other languages.
+It makes source code more portable to other languages and available for reading by other developers.
 
 ```js
 // bad
@@ -198,11 +198,17 @@ const b = !!a
 // bad
 const b = (~a.indexOf('k'))
 
+// bad
+const c = !!d.length
+
 // good
 const b = Boolean(a)
 
 // good
 const b = (a.indexOf('k') >= 0)
+
+// good
+const c = (d.length > 0)
 ```
 
 ### Fetch and combinate seperation
