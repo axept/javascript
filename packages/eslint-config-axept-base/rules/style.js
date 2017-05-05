@@ -5,7 +5,7 @@ module.exports = {
      *
      * Pros: fixes some issues for 'semi' rule
      */
-    'no-unexpected-multiline': ['error', 'always', { 'omitLastInOneLineBlock': true }],
+    'no-unexpected-multiline': 'error',
 
     /**
      * http://eslint.org/docs/rules/semi
