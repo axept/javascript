@@ -200,7 +200,9 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
 ## Unsorted Yet
 
 ### Use brackets for expressions
+
   + TODO: find or make ESLint rule for this
+
 ```javascript
 // bad
 const useSrcKey = _srcKey !== undefined || this._srcKey !== undefined
@@ -216,6 +218,7 @@ const isProduction = (process.env['NODE_ENV'] === 'production')
 ### Do not use JavaScript "magic"
 
 It makes source code more portable to other languages and available for reading by other developers.
+
   - ESLint rule: [no-implicit-coercion](http://eslint.org/docs/rules/no-implicit-coercion), [no-bitwise](http://eslint.org/docs/rules/no-bitwise)
 
 ```js
@@ -241,6 +244,7 @@ const c = (d.length > 0)
 ### Fetch and combinate separation
 
   + TODO: find or make ESLint rule for this
+
 ```javascript
 // bad
 const targetURL = `${getHost()}/search/?query=${query}`
@@ -336,6 +340,7 @@ It also means you can't rename stringifed keys because they are not in your code
 ### Don't mix JS and JSX in one line
 
   + TODO: find or make ESLint rule for this
+
 ```javascript
 // bad
 return <ReferenceLink referenceKey={key} id={ref.id} title={ref.title}/>
@@ -370,6 +375,7 @@ return (
 ### Don't mix JSX and Text node in one line
 
   + TODO: find or make ESLint rule for this
+
 ```javascript
 // bad
 return (
@@ -450,6 +456,7 @@ class A {
 ## Static members should be declared in class body
 
   + TODO: find or make ESLint rule for this
+
 ```javascript
 // bad
 
@@ -475,6 +482,7 @@ class Profile extends Component {
 ## Do not mix expression in one-line objects as assignment
 
   + TODO: find or make ESLint rule for this
+
 ```js
 // bad
 this.setState({ hasErrors: true, route })
