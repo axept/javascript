@@ -239,6 +239,7 @@ const c = (d.length > 0)
 ```
 
 ### Fetch and combinate separation
+
   + TODO: find or make ESLint rule for this
 ```javascript
 // bad
@@ -251,6 +252,7 @@ const targetURL = `${targetHost}/search/?query=${query}`
 ```
 
 ### Don't use excess `else` for return
+
   - ESLint rule: [no-else-return](http://eslint.org/docs/rules/no-else-return)
 
 ```javascript
@@ -270,6 +272,7 @@ return false
 ```
 
 ### Don't use excess empty line
+
   - ESLint rule: [no-unexpected-multiline](http://eslint.org/docs/rules/no-unexpected-multiline), [padded-blocks](http://eslint.org/docs/rules/padded-blocks)
 
 ```javascript
@@ -331,6 +334,7 @@ fetch('/api/users')
 It also means you can't rename stringifed keys because they are not in your code base only - in external API, data files, etc.
 
 ### Don't mix JS and JSX in one line
+
   + TODO: find or make ESLint rule for this
 ```javascript
 // bad
@@ -364,6 +368,7 @@ return (
 ```
 
 ### Don't mix JSX and Text node in one line
+
   + TODO: find or make ESLint rule for this
 ```javascript
 // bad
@@ -387,6 +392,7 @@ return (
 ```
 
 ## One empty line before and after function or class declaration
+
   - ESLint rule: [no-unexpected-multiline](http://eslint.org/docs/rules/no-unexpected-multiline)
 
 No empty line needed after function or class declaration - if the following line is javascript brackets.
@@ -442,6 +448,7 @@ class A {
 ```
 
 ## Static members should be declared in class body
+
   + TODO: find or make ESLint rule for this
 ```javascript
 // bad
@@ -466,6 +473,7 @@ class Profile extends Component {
 ```
 
 ## Do not mix expression in one-line objects as assignment
+
   + TODO: find or make ESLint rule for this
 ```js
 // bad
