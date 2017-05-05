@@ -29,25 +29,26 @@ Extends: [Section 15](https://github.com/airbnb/javascript#comparison-operators-
 
   <a name="comparison--no-ternary-in-expression"></a>
   - [Link](#comparison--no-ternary-in-expression) Ternaries should not be as a part of expression, only whole expression.
-  
+  + TODO: find or make ESLint rule for this
+
   > Why? The following example demonstrate how it could be misunderstood.
 
   ```javascript
   // bad
   const query = { 'forward_url': '/' }
   const targetURL = 'https://qwe.com/auth?' + (typeof query === 'string') ? query : JSON.stringify(query)
-  
+
   // Uncaught TypeError: split is not a function
   // because type of targetURL is Object
   const partsOfURL = targetURL.split('?')
-    
-    
+
+
   // may be
   const query = { 'forward_url': '/' }
   const queryString = typeof query === 'string' ? query : JSON.stringify(query)
   const targetURL = 'https://qwe.com/auth?' + queryString
-    
-    
+
+
   // good
   const query = { 'forward_url': '/' }
   const queryString = (typeof query === 'string') ? query : JSON.stringify(query)
@@ -62,38 +63,38 @@ Extends: [Section 17](https://github.com/airbnb/javascript#comments)
 
   <a name="comments--no-obvious-comments"></a>
   - [Link](#comments--no-obvious-comments) Avoid using obvious comments.
-  
+
   > Why? It makes code harder to read because you can think that here is something else than you see.
-  
+
   ```javascript
   // bad - it duplicates the function name
-  
+
   /**
    * Update hosts
    */
   function updateHosts(list) {
     hosts = list
   }
-  
-  
+
+
   // good - nothing bad is better than something bad
   function updateHosts(list) {
     hosts = list
   }
-  
-  
+
+
   // bad - it duplicates the module path
   import Drawer from 'react-native-drawer'
 
   // Components
   import DrawerMenu from './components/drawer-menu'
-  
-  
+
+
   // good - see the previous "good" explaination
   import Drawer from 'react-native-drawer'
   import DrawerMenu from './components/drawer-menu'
-  
-  
+
+
   // good
   if (!root.isAbstract()) {
     // No need to wrap child nodes of a known concrete type.
@@ -109,7 +110,8 @@ Extends: [Section 20](https://github.com/airbnb/javascript#semicolons)
 
   <a name="semicolons--nope"></a>
   - [Link](#semicolons--nope) **Nope**.
-  
+  - ESLint rule: [semi](http://eslint.org/docs/rules/semi)
+
   > Why? Since we always have linting tools we can detect dangerous situations automatically. But this style makes us really faster according to a few years experience.
 
 **[⬆ back to top](#contents)**
@@ -118,25 +120,26 @@ Extends: [Section 20](https://github.com/airbnb/javascript#semicolons)
 
   <a name="line-width"></a>
   - [Link](#line-width) 80 characters is good. But feel free to use up to 100 characters in a line.
-  
+  - ESLint rule: [max-len](http://eslint.org/docs/rules/max-len)
+
   > Why? Almost all developers used to 80 characters. It's a very old practice. Now we have a wide screens and we used to seat a little bit more far from monitor. In this case we can use a bit more characters and code will be still readable.
-  
+
   Read [this](http://softwareengineering.stackexchange.com/questions/312889/how-to-follow-the-80-character-limit-best-practice-while-writing-source-code) and [this](http://stackoverflow.com/questions/578059/studies-on-optimal-code-width) for more details.
-  
+
   ```javascript
   // bad
   if ((this.props.suggestions.length === 0) && (newProps.suggestions.length > 0) && (newProps.autosuggestValue.length > 0) {
-  
+
     return
   }
-  
+
   // good
   const hasSuggestions = (this.props.suggestions.length === 0)
   const willHaveSuggestions = (newProps.suggestions.length > 0)
   if (hasSuggestions && willHaveSuggestions && (newProps.autosuggestValue.length > 0)) {
     return
   }
-  
+
   // good
   const hasSuggestions = (this.props.suggestions.length === 0)
   const willHaveSuggestions = (newProps.suggestions.length > 0)
@@ -154,25 +157,25 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
 
   <a name="naming--no-reduced-names"></a>
   - [Link](#naming--no-reduced-names) Avoid using reduced names.
-  
+
   > Why? It makes code harder to understand. Names are for readability, not to appease a computer algorithm.
-  
+
   ```javascript
   // bad - what does it mean "ref"? referals? references? single reference?
   const ref1 = fetch('/api/books')
-  
-  
-  // good 
+
+
+  // good
   const reference1 = fetch('/api/books')
   ```
-  
+
 **[⬆ back to top](#contents)**
 
 ## Imports
 
   <a name="imports--order"></a>
   - [Link](#imports--order) Use the following modules import order:
-  
+
     + React
     + Relay
     + Redux
@@ -189,7 +192,7 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
 
   <a name="packages--lodash-and-ramda"></a>
   - [Link](#packages--lodash-and-ramda) Try to avoid using Lodash and Ramda.
-  
+
   > Why? Underscore and Lodash has been made when ES6 has not been so popular. Ramda do not have performance benefits, but being opinionated custom approach increase unnecessary requirements for Developers skills. Besides of that Ramda did not stay "standard de-facto".
 
 **[⬆ back to top](#contents)**
@@ -197,6 +200,8 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
 ## Unsorted Yet
 
 ### Use brackets for expressions
+
+  + TODO: find or make ESLint rule for this
 
 ```javascript
 // bad
@@ -213,6 +218,8 @@ const isProduction = (process.env['NODE_ENV'] === 'production')
 ### Do not use JavaScript "magic"
 
 It makes source code more portable to other languages and available for reading by other developers.
+
+  - ESLint rule: [no-implicit-coercion](http://eslint.org/docs/rules/no-implicit-coercion), [no-bitwise](http://eslint.org/docs/rules/no-bitwise)
 
 ```js
 // bad
@@ -234,7 +241,9 @@ const b = (a.indexOf('k') >= 0)
 const c = (d.length > 0)
 ```
 
-### Fetch and combinate seperation
+### Fetch and combinate separation
+
+  + TODO: find or make ESLint rule for this
 
 ```javascript
 // bad
@@ -247,6 +256,8 @@ const targetURL = `${targetHost}/search/?query=${query}`
 ```
 
 ### Don't use excess `else` for return
+
+  - ESLint rule: [no-else-return](http://eslint.org/docs/rules/no-else-return)
 
 ```javascript
 // bad
@@ -265,6 +276,8 @@ return false
 ```
 
 ### Don't use excess empty line
+
+  - ESLint rule: [no-unexpected-multiline](http://eslint.org/docs/rules/no-unexpected-multiline), [padded-blocks](http://eslint.org/docs/rules/padded-blocks)
 
 ```javascript
 // bad
@@ -285,7 +298,7 @@ if (config) {
 ### Use dot syntax only for internal objects
 
 Seperate importable/exportable JSON data objects and internal runtime objects.
-
+  + TODO: find or make ESLint rule for this
 > [Google Closure Advanced Compilation](https://developers.google.com/closure/compiler/docs/api-tutorial3):
 > Whenever possible, use dot-syntax property names rather than quoted strings. Use quoted string property names only when you don't want Closure Compiler to rename a property at all. For example, to export a property you must use a quoted string. However, for properties used only within your compiled code, use dot syntax.
 
@@ -326,6 +339,8 @@ It also means you can't rename stringifed keys because they are not in your code
 
 ### Don't mix JS and JSX in one line
 
+  + TODO: find or make ESLint rule for this
+
 ```javascript
 // bad
 return <ReferenceLink referenceKey={key} id={ref.id} title={ref.title}/>
@@ -359,6 +374,8 @@ return (
 
 ### Don't mix JSX and Text node in one line
 
+  + TODO: find or make ESLint rule for this
+
 ```javascript
 // bad
 return (
@@ -381,6 +398,8 @@ return (
 ```
 
 ## One empty line before and after function or class declaration
+
+  - ESLint rule: [no-unexpected-multiline](http://eslint.org/docs/rules/no-unexpected-multiline)
 
 No empty line needed after function or class declaration - if the following line is javascript brackets.
 
@@ -427,7 +446,7 @@ class A {
   a() {
     return 1
   }
-  
+
   b() {
     return 2
   }
@@ -435,6 +454,8 @@ class A {
 ```
 
 ## Static members should be declared in class body
+
+  + TODO: find or make ESLint rule for this
 
 ```javascript
 // bad
@@ -452,13 +473,15 @@ class Profile extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     handleClick: PropTypes.func,
-  } 
-  
+  }
+
   // ...
 }
 ```
 
 ## Do not mix expression in one-line objects as assignment
+
+  + TODO: find or make ESLint rule for this
 
 ```js
 // bad
