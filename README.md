@@ -298,7 +298,11 @@ if (config) {
 ### Use dot syntax only for internal objects
 
 Seperate importable/exportable JSON data objects and internal runtime objects.
-  + TODO: find or make ESLint rule for this
+
+Also it means - do not mix accessing to values by dot and by string.
+
+- TODO: find or make ESLint rule for this
+
 > [Google Closure Advanced Compilation](https://developers.google.com/closure/compiler/docs/api-tutorial3):
 > Whenever possible, use dot-syntax property names rather than quoted strings. Use quoted string property names only when you don't want Closure Compiler to rename a property at all. For example, to export a property you must use a quoted string. However, for properties used only within your compiled code, use dot syntax.
 
@@ -318,6 +322,13 @@ fetch('/api/users')
     }
   })
 
+// bad
+const a = { b: 1 }
+console.log(a['b'])
+
+// bad
+const a = { 'b': 1 }
+console.log(a.b)
 
 // good
 fetch('/api/users')
@@ -333,6 +344,14 @@ fetch('/api/users')
       })
     }
   })
+  
+// good
+const a = { b: 1 }
+console.log(a.b)
+
+// good
+const a = { 'b': 1 }
+console.log(a['b'])
 ```
 
 It also means you can't rename stringifed keys because they are not in your code base only - in external API, data files, etc.
