@@ -1,9 +1,4 @@
 module.exports = {
-  parser: 'babel-eslint',
-  plugins: [
-    'flowtype',
-    'babel'
-  ],
   settings: {
     flowtype: {
       onlyFilesWithFlowAnnotation: true

@@ -1,5 +1,11 @@
 module.exports = {
+  parser: 'babel-eslint',
+  plugins: [
+    'flowtype',
+    'babel'
+  ],
   extends: [
+    'plugin:flowtype/recommended',
     './rules/flowtype',
   ].map(require.resolve),
   parserOptions: {
@@ -7,9 +13,7 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
-      jsx: true
     },
   },
-  'rules': {
-  }
+  'rules': {}
 }
