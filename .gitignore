@@ -1,6 +1,79 @@
+### Project builds ###
+build
+dist
+lib
+es
 
-.idea
-.vscode
-**/node_modules/**
-npm-debug.log*
+### Temp files ###
 .DS_Store
+test/temp
+.sass-cache
+.tmp
+.grunt
+.cache
+
+
+### TODO Cleanup, describe and organize the following lines
+app/vendor
+test/scripts/
+dump.rdb
+tests_output
+browserstack.err
+stats.json
+*.json.gzip
+
+
+### IDE specific ###
+## Microsoft
+.vscode/
+.vs/
+
+## JetBrains
+*.iml
+.idea/
+*.ipr
+*.iws
+
+## JetBrains plugin-specific files ###
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+
+### Coverage ###
+# jscoverage/JSCover
+lib-cov
+
+# istanbul
+coverage
+
+# nyc
+.nyc
+
+
+### Node ###
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# node-waf configuration
+.lock-wscript
+
+# Dependency directory
+node_modules
