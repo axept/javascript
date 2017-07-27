@@ -178,19 +178,21 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
   // bad 
   import fetch from './fetch-with-credentials'
 
+  // good
+  import fetchWithCredentials from './fetch-with-credentials`
+
   // bad
   function alert(message) {
     console.error(message)
   }
 
   // good
-  import fetchWithCredentials from './fetch-with-credentials`
-
-  // good
   function alertToConsole(message) {
     console.error(message)
   }
   ```
+  
+**[⬆ back to top](#contents)**
 
 ## Imports
 
