@@ -171,6 +171,27 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
 
 **[⬆ back to top](#contents)**
 
+  <a name="naming--do-not-override-globals"></a>
+  - [Link](#naming--do-not-override-globals"> Do not override globals.
+
+  ```javascript
+  // bad 
+  import fetch from './fetch-with-credentials'
+
+  // bad
+  function alert(message) {
+    console.error(message)
+  }
+
+  // good
+  import fetchWithCredentials from './fetch-with-credentials`
+
+  // good
+  function alertToConsole(message) {
+    console.error(message)
+  }
+  ```
+
 ## Imports
 
   <a name="imports--order"></a>
