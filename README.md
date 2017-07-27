@@ -172,7 +172,7 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
 **[⬆ back to top](#contents)**
 
   <a name="naming--do-not-override-globals"></a>
-  - [Link](#naming--do-not-override-globals") Do not override globals.
+  - [Link](#naming--do-not-override-globals) Do not override globals.
 
   ```javascript
   // bad 
