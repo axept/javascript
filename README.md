@@ -194,6 +194,41 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
   
 **[⬆ back to top](#contents)**
 
+**[⬆ back to top](#contents)**
+
+  <a name="naming--Acronyms-and-Initialisms"></a>
+  - [Link](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all capitalized.
+  
+  > Why? Names are for readability, not to appease a computer algorithm.
+
+  ```javascript
+  // bad
+  import SmsContainer from './containers/SmsContainer'
+
+  // bad
+  const HttpRequests = [
+    // ...
+  ]
+
+  // good
+  import SMSContainer from './containers/SMSContainer'
+
+  // good
+  const HTTPRequests = [
+    // ...
+  ]
+
+  // best
+  import TextMessageContainer from './containers/TextMessageContainer'
+
+  // best
+  const requests = [
+    // ...
+  ]
+  ```
+  
+**[⬆ back to top](#contents)**
+
 ## Imports
 
   <a name="imports--order"></a>
