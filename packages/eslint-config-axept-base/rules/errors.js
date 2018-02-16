@@ -1,7 +1,9 @@
 module.exports = {
   rules: {
-    'no-await-in-loop': 'off',
-    'no-compare-neg-zero': 'error',
-    'valid-jsdoc': 'error',
+    /**
+     * Warn if jsdoc not valid.
+     * https://eslint.org/docs/rules/valid-jsdoc
+     * */
+    'valid-jsdoc': 'warn',
   },
 }

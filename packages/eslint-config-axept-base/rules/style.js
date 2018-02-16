@@ -1,43 +1,23 @@
 module.exports = {
   rules: {
     /**
+     * Fixes some issues for 'semi' rule.
      * http://eslint.org/docs/rules/no-unexpected-multiline
-     *
-     * Pros: fixes some issues for 'semi' rule
      */
     'no-unexpected-multiline': 'error',
 
     /**
+     * Don't use semicolons, less code, faster code writing.
      * http://eslint.org/docs/rules/semi
-     *
-     * Pros: less code, faster code writing
-     * Cons: human behaviours, dangerous unexpected use-cases
      */
-    semi: ['error', 'never'],
+    'semi': ['error', 'never'],
 
     /**
-     * http://eslint.org/docs/rules/semi-spacing
-     */
-    'semi-spacing': ['error', { before: false, after: true }],
-    'no-unneeded-ternary': 'error',
-    'space-unary-ops': ['error', { words: true, nonwords: false }],
-    'func-call-spacing': ['error', 'never'],
-    'multiline-ternary': ['error', 'never'],
-    'no-nested-ternary': 'error',
-    'max-len': [
-      'error',
-      {
-        code: 100,
-        ignoreUrls: true,
-        ignoreStrings: true,
-        ignoreRegExpLiterals: true,
-      },
-    ],
-    'no-else-return': 'error',
-    'padded-blocks': ['error', 'never'],
-    'object-curly-spacing': [2, 'always'],
-    'quote-props': 'off',
-    'indent': [1, 2, {
+     * Indentation rules.
+     * https://eslint.org/docs/developer-guide/code-conventions#indentation
+     * */
+    'indent': ['error', 2, {
+      'SwitchCase': 1,
       'VariableDeclarator': 1,
       'FunctionDeclaration': {
         parameters: 1,
@@ -48,20 +28,29 @@ module.exports = {
         body: 1,
       },
       'MemberExpression': 1,
-      'SwitchCase': 1,
       'ArrayExpression': 1,
       'ObjectExpression': 1,
     }],
-    'jsx-quotes': ['warn', 'prefer-single'],
-    'key-spacing': ['warn', {
-      beforeColon: false,
-      afterColon: true,
-    }],
+
+    /**
+     * Don't add lines around directive.
+     * https://eslint.org/docs/rules/lines-around-directive
+     * */
     'lines-around-directive': ['error', {
       before: 'never',
       after: 'never',
     }],
+
+    /**
+     * Add new line in chained call if depth more than 2.
+     * https://eslint.org/docs/rules/newline-per-chained-call
+     * */
     'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
+
+    /**
+     * Warn if trailing spaces in end of the lines.
+     * https://eslint.org/docs/rules/no-trailing-spaces
+     * */
     'no-trailing-spaces': 'warn',
   },
 }
