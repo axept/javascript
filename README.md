@@ -366,7 +366,7 @@ Extends: [Section 22](https://github.com/airbnb/javascript#type-casting--coercio
 Extends: [Section 6](https://github.com/airbnb/javascript#es6-template-literals)
 
   <a name="template-strings--call-function"></a>
-  - [9.1](#teplate-strings--call-function) Don't call function inside template string.
+  - [9.1](#template-strings--call-function) Don't call function inside template string.
     > TODO: find or make ESLint rule for this
 
     ```javascript
