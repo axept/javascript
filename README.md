@@ -583,6 +583,7 @@ Extends: [Section 9](https://github.com/airbnb/javascript#classes--constructors)
     )
     ```
 
+**[⬆ back to top](#contents)**
 
 
 
