@@ -18,8 +18,7 @@ module.exports = {
      * Don't use syntax which creates potential errors.
      * https://eslint.org/docs/rules/no-restricted-syntax
      * */
-    'no-restricted-syntax': [
-      'error',
+    'no-restricted-syntax': ['error',
       {
         selector: 'ForInStatement',
         message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
@@ -33,5 +32,16 @@ module.exports = {
         message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
       },
     ],
+
+    /**
+     * disallow implicit type conversions
+     * https://eslint.org/docs/rules/no-implicit-coercion
+     * */
+    'no-implicit-coercion': ['error', {
+      boolean: true,
+      number: false,
+      string: false,
+      allow: [],
+    }],
   },
 }
