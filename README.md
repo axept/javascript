@@ -23,7 +23,8 @@ TODO:
   6. [Imports](#imports)
   7. [Packages](#packages)
   8. [Type Casting & Coercion](#type-casting--coercion)
-  9. [Template Strings](#es6-template-literals)
+  9. [Template Strings](#template-strings)
+  10. [Objects](#object)
   10. [Unsorted Yet](#unsorted-yet)
 
 ## Comparison Operators & Equality
@@ -121,8 +122,8 @@ Extends: [Section 21](https://github.com/airbnb/javascript#semicolons)
 
 ## Lines
 
-  <a name="line-width"></a>
-  - [4.1](#line-width) 80 characters is good. But feel free to use up to 100 characters in a line.
+  <a name="lines--width"></a>
+  - [4.1](#lines--width) 80 characters is good. But feel free to use up to 100 characters in a line.
     > ESLint rule: [max-len](http://eslint.org/docs/rules/max-len)
   
     > Why? Almost all developers used to 80 characters. It's a very old practice. Now we have a wide screens and we used to seat a little bit more far from monitor. In this case we can use a bit more characters and code will be still readable.
@@ -152,9 +153,8 @@ Extends: [Section 21](https://github.com/airbnb/javascript#semicolons)
     }
     ```
   
-  <a name="excess-line"></a>  
-  - [4.2](#excess-line) Don't use excess empty line
-    
+  <a name="lines--excess-line"></a>  
+  - [4.2](#lines--excess-line) Don't use excess empty line
      > ESLint rule: [no-unexpected-multiline](http://eslint.org/docs/rules/no-unexpected-multiline), [padded-blocks](http://eslint.org/docs/rules/padded-blocks)
     
     ```javascript
@@ -170,6 +170,62 @@ Extends: [Section 21](https://github.com/airbnb/javascript#semicolons)
     const config = loadConfig()
     if (config) {
       applyConfig(config)
+    }
+    ```
+  
+  <a name="lines--function-declaration"></a>  
+  - [4.3](#lines--function-declaration) One empty line before and after function or class declaration.
+    > ESLint rule: [no-unexpected-multiline](http://eslint.org/docs/rules/no-unexpected-multiline)
+    
+    > Why? No empty line needed after function or class declaration - if the following line is javascript brackets.
+    
+    ```javascript
+    // bad
+    
+    const x = 0
+    function a() {
+      return 1
+    }
+    const b = () => 2
+    
+    
+    // bad
+    
+    const x = 0
+    class A {
+      a() {
+        return 1
+      }
+      b() {
+        return 2
+      }
+    }
+    
+    
+    // good
+    
+    const x = 0
+    
+    function a() {
+      return 1
+    }
+    
+    const b = () => 2
+    
+    
+    // good
+    
+    const x = 0
+    
+    class A {
+    
+      a() {
+        return 1
+      }
+    
+      b() {
+        return 2
+      }
     }
     ```
 
@@ -213,8 +269,8 @@ Extends: [Section 22](https://github.com/airbnb/javascript#naming-conventions)
     }
     ```
 
-  <a name="naming--Acronyms-and-Initialisms"></a>
-  - [5.3](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all capitalized.
+  <a name="naming--acronyms-and-initialisms"></a>
+  - [5.3](#naming--acronyms-and-initialisms) Acronyms and initialisms should always be all capitalized.
   
     > Why? Names are for readability, not to appease a computer algorithm.
   
@@ -308,8 +364,8 @@ Extends: [Section 22](https://github.com/airbnb/javascript#type-casting--coercio
 
 Extends: [Section 6](https://github.com/airbnb/javascript#es6-template-literals)
 
-  <a name="strings--call-function"></a>
-  - [9.1](#strings--call-function) Don't call function inside template string.
+  <a name="template-strings--call-function"></a>
+  - [9.1](#teplate-strings--call-function) Don't call function inside template string.
     > TODO: find or make ESLint rule for this
 
     ```javascript
@@ -320,6 +376,38 @@ Extends: [Section 6](https://github.com/airbnb/javascript#es6-template-literals)
     // good
     const targetHost = getHost()
     const targetURL = `${targetHost}/search/?query=${query}`
+    ```
+
+**[⬆ back to top](#contents)**
+
+## Objects
+
+Extends: [Section 3](https://github.com/airbnb/javascript#objects)
+
+  <a name="objects--expression-assignment"></a>
+  - [10.1](#objects--expression-assignment) Do not mix expression in one-line objects as assignment.
+  
+    > TODO: find or make ESLint rule for this
+  
+    ```js
+    // bad
+    this.setState({ hasErrors: true, route })
+    
+    
+    // bad
+    const state = { hasErrors: true, route }
+    
+    
+    // good
+    this.setState({ hasErrors, route })
+    
+    
+    // good
+    this.setState({ hasErrors: true })
+    
+    
+    // good
+    const state = { hasErrors, route }
     ```
 
 **[⬆ back to top](#contents)**
@@ -354,7 +442,6 @@ Also it means - do not mix accessing to values by dot and by string.
 
 > [Google Closure Advanced Compilation](https://developers.google.com/closure/compiler/docs/api-tutorial3):
 > Whenever possible, use dot-syntax property names rather than quoted strings. Use quoted string property names only when you don't want Closure Compiler to rename a property at all. For example, to export a property you must use a quoted string. However, for properties used only within your compiled code, use dot syntax.
-
 
 ```javascript
 // bad
@@ -465,61 +552,7 @@ return (
 )
 ```
 
-## One empty line before and after function or class declaration
 
-  - ESLint rule: [no-unexpected-multiline](http://eslint.org/docs/rules/no-unexpected-multiline)
-
-No empty line needed after function or class declaration - if the following line is javascript brackets.
-
-```javascript
-// bad
-
-const x = 0
-function a() {
-  return 1
-}
-const b = () => 2
-
-
-// bad
-
-const x = 0
-class A {
-  a() {
-    return 1
-  }
-  b() {
-    return 2
-  }
-}
-
-
-// good
-
-const x = 0
-
-function a() {
-  return 1
-}
-
-const b = () => 2
-
-
-// good
-
-const x = 0
-
-class A {
-
-  a() {
-    return 1
-  }
-
-  b() {
-    return 2
-  }
-}
-```
 
 ## Static members should be declared in class body
 
@@ -547,27 +580,4 @@ class Profile extends Component {
 }
 ```
 
-## Do not mix expression in one-line objects as assignment
 
-  + TODO: find or make ESLint rule for this
-
-```js
-// bad
-this.setState({ hasErrors: true, route })
-
-
-// bad
-const state = { hasErrors: true, route }
-
-
-// good
-this.setState({ hasErrors, route })
-
-
-// good
-this.setState({ hasErrors: true })
-
-
-// good
-const state = { hasErrors, route }
-```
