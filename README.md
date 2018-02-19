@@ -25,7 +25,8 @@ TODO:
   8. [Type Casting & Coercion](#type-casting--coercion)
   9. [Template Strings](#template-strings)
   10. [Objects](#object)
-  10. [Unsorted Yet](#unsorted-yet)
+  11. [Classes & Constructors](#classes--constructors)
+  12. [Unsorted Yet](#unsorted-yet)
 
 ## Comparison Operators & Equality
 
@@ -386,7 +387,6 @@ Extends: [Section 3](https://github.com/airbnb/javascript#objects)
 
   <a name="objects--expression-assignment"></a>
   - [10.1](#objects--expression-assignment) Do not mix expression in one-line objects as assignment.
-  
     > TODO: find or make ESLint rule for this
   
     ```js
@@ -412,172 +412,179 @@ Extends: [Section 3](https://github.com/airbnb/javascript#objects)
 
 **[⬆ back to top](#contents)**
 
-## Unsorted Yet
+## Classes & Constructors
 
-### Use brackets for expressions
+Extends: [Section 9](https://github.com/airbnb/javascript#classes--constructors)
 
-  + TODO: find or make ESLint rule for this
-
-```javascript
-// bad
-const useSrcKey = _srcKey !== undefined || this._srcKey !== undefined
-const componentAsync = typeof src === 'function' ? src() : import(src)
-const isProduction = process.env['NODE_ENV'] === 'production'
-
-// good
-const useSrcKey = (_srcKey !== undefined) || (this._srcKey !== undefined)
-const componentAsync = (typeof src === 'function') ? src() : import(src)
-const isProduction = (process.env['NODE_ENV'] === 'production')
-```
-
-
-
-### Use dot syntax only for internal objects
-
-Seperate importable/exportable JSON data objects and internal runtime objects.
-
-Also it means - do not mix accessing to values by dot and by string.
-
-- TODO: find or make ESLint rule for this
-
-> [Google Closure Advanced Compilation](https://developers.google.com/closure/compiler/docs/api-tutorial3):
-> Whenever possible, use dot-syntax property names rather than quoted strings. Use quoted string property names only when you don't want Closure Compiler to rename a property at all. For example, to export a property you must use a quoted string. However, for properties used only within your compiled code, use dot syntax.
-
-```javascript
-// bad
-fetch('/api/users')
-  .then(response => response.json())
-  .then(json => {
-    if (!json.errors) {
-      json.data.users.forEach(user => {
-        const { id, name } = user
-        if (users[id].name !== name) {
-          setUserName(id, name)
-        }
-      })
-    }
-  })
-
-// bad
-const a = { b: 1 }
-console.log(a['b'])
-
-// bad
-const a = { 'b': 1 }
-console.log(a.b)
-
-// good
-fetch('/api/users')
-  .then(response => response.json())
-  .then(json => {
-    if (!json['errors']) {
-      json['data']['users'].forEach(user => {
-        const id = user['id']
-        const name = user['name']
-        if (users[id].name !== name) {
-          setUserName(id, name)
-        }
-      })
-    }
-  })
+  <a name="classes--static"></a>
+  - [11.1](#classes--static) Static members should be declared in class body
+    > TODO: find or make ESLint rule for this
   
-// good
-const a = { b: 1 }
-console.log(a.b)
+    ```javascript
+    // bad
+    
+    Profile.propTypes = {
+      classes: PropTypes.object.isRequired,
+      handleClick: PropTypes.func,
+    }
+    
+    
+    // good
+    
+    class Profile extends Component {
+    
+      static propTypes = {
+        classes: PropTypes.object.isRequired,
+        handleClick: PropTypes.func,
+      }
+    
+      // ...
+    }
+    ```
 
-// good
-const a = { 'b': 1 }
-console.log(a['b'])
-```
-
-It also means you can't rename stringifed keys because they are not in your code base only - in external API, data files, etc.
-
-### Don't mix JS and JSX in one line
-
-  + TODO: find or make ESLint rule for this
-
-```javascript
-// bad
-return <ReferenceLink referenceKey={key} id={ref.id} title={ref.title}/>
-
-
-// bad
-const body = items.map(it => <li>{it.title}</li>)
-
-
-// good
-return (
-  <ReferenceLink referenceKey={key} id={ref.id} title={ref.title}/>
-);
+**[⬆ back to top](#contents)**
 
 
-// good
-const body = items.map(it => (
-  <li>{it.title}</li>
-))
+## Unsorted Yet
+  
+  <a name="unsorted--brackets"></a>
+  - [12.1](#unsorted--brackets) Use brackets for expressions.
+    > TODO: find or make ESLint rule for this
+
+    ```javascript
+    // bad
+    const useSrcKey = _srcKey !== undefined || this._srcKey !== undefined
+    const componentAsync = typeof src === 'function' ? src() : import(src)
+    const isProduction = process.env['NODE_ENV'] === 'production'
+    
+    // good
+    const useSrcKey = (_srcKey !== undefined) || (this._srcKey !== undefined)
+    const componentAsync = (typeof src === 'function') ? src() : import(src)
+    const isProduction = (process.env['NODE_ENV'] === 'production')
+    ```
+
+  <a name="unsorted--dot-syntax"></a>
+  - [12.2](#unsorted--dot-syntax) Use dot syntax only for internal objects.
+    > TODO: find or make ESLint rule for this
+    
+    Seperate importable/exportable JSON data objects and internal runtime objects.
+
+    Also it means - do not mix accessing to values by dot and by string.
+
+    > [Google Closure Advanced Compilation](https://developers.google.com/closure/compiler/docs/api-tutorial3):
+    > Whenever possible, use dot-syntax property names rather than quoted strings. Use quoted string property names only when you don't want Closure Compiler to rename a property at all. For example, to export a property you must use a quoted string. However, for properties used only within your compiled code, use dot syntax.
+
+    ```javascript
+    // bad
+    fetch('/api/users')
+      .then(response => response.json())
+      .then(json => {
+        if (!json.errors) {
+          json.data.users.forEach(user => {
+            const { id, name } = user
+            if (users[id].name !== name) {
+              setUserName(id, name)
+            }
+          })
+        }
+      })
+    
+    // bad
+    const a = { b: 1 }
+    console.log(a['b'])
+    
+    // bad
+    const a = { 'b': 1 }
+    console.log(a.b)
+    
+    // good
+    fetch('/api/users')
+      .then(response => response.json())
+      .then(json => {
+        if (!json['errors']) {
+          json['data']['users'].forEach(user => {
+            const id = user['id']
+            const name = user['name']
+            if (users[id].name !== name) {
+              setUserName(id, name)
+            }
+          })
+        }
+      })
+      
+    // good
+    const a = { b: 1 }
+    console.log(a.b)
+    
+    // good
+    const a = { 'b': 1 }
+    console.log(a['b'])
+    ```
+
+    It also means you can't rename stringifed keys because they are not in your code base only - in external API, data files, etc.
+  
+  <a name="unsorted--jsx-js"></a>
+  - [12.3](#unsorted--jsx-js) Don't mix JS and JSX in one line.
+    > TODO: find or make ESLint rule for this
+
+    ```javascript
+    // bad
+    return <ReferenceLink referenceKey={key} id={ref.id} title={ref.title}/>
+    
+    
+    // bad
+    const body = items.map(it => <li>{it.title}</li>)
+    
+    
+    // good
+    return (
+      <ReferenceLink referenceKey={key} id={ref.id} title={ref.title}/>
+    );
+    
+    
+    // good
+    const body = items.map(it => (
+      <li>{it.title}</li>
+    ))
+    
+    
+    // good
+    return (
+      <References>
+        {items.map((it, index) => (
+          <ReferenceLink referenceKey={index} id={it['id']} title={it['title']}/>
+        ))}
+      </References>
+    )
+    ```
+    
+  <a name="unsorted--jsx-text"></a>
+  - [12.4](#unsorted--jsx-text) Don't mix JSX and Text node in one line.
+    > TODO: find or make ESLint rule for this
+
+    ```javascript
+    // bad
+    return (
+      <Text style={style.openInSafariLink}>Open in Safari</Text>
+    )
+    
+    
+    // good
+    return (
+      <Text style={style.openInSafariLink}>
+        Open in Safari
+      </Text>
+    )
+    
+    
+    // good - if you need a Text node for styling
+    return (
+      <Text>&nbsp;</Text>
+    )
+    ```
 
 
-// good
-return (
-  <References>
-    {items.map((it, index) => (
-      <ReferenceLink referenceKey={index} id={it['id']} title={it['title']}/>
-    ))}
-  </References>
-)
-```
-
-### Don't mix JSX and Text node in one line
-
-  + TODO: find or make ESLint rule for this
-
-```javascript
-// bad
-return (
-  <Text style={style.openInSafariLink}>Open in Safari</Text>
-)
 
 
-// good
-return (
-  <Text style={style.openInSafariLink}>
-    Open in Safari
-  </Text>
-)
-
-
-// good - if you need a Text node for styling
-return (
-  <Text>&nbsp;</Text>
-)
-```
-
-
-
-## Static members should be declared in class body
-
-  + TODO: find or make ESLint rule for this
-
-```javascript
-// bad
-
-Profile.propTypes = {
-  classes: PropTypes.object.isRequired,
-  handleClick: PropTypes.func,
-}
-
-
-// good
-
-class Profile extends Component {
-
-  static propTypes = {
-    classes: PropTypes.object.isRequired,
-    handleClick: PropTypes.func,
-  }
-
-  // ...
-}
-```
 
 
