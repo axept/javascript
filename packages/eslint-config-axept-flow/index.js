@@ -5,9 +5,10 @@ module.exports = {
     'babel'
   ],
   extends: [
+    'eslint-config-axept-base',
     'plugin:flowtype/recommended',
-    './rules/flowtype',
-  ].map(require.resolve),
+    './rules/flowtype.js',
+  ],
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module',
