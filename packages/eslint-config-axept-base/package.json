@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-axept-base",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Axept's base JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
