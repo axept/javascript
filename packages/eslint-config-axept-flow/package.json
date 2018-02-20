@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-axept-flow",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Axept's flowtype JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
@@ -33,10 +33,10 @@
   },
   "homepage": "https://github.com/axept/javascript",
   "dependencies": {
-    "eslint-config-axept-base": "^0.1.0",
+    "babel-eslint": "^8.1.0",
+    "eslint-config-axept-base": "^0.2.0",
     "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-flowtype": "^2.45.0",
-    "babel-eslint": "^8.1.0"
+    "eslint-plugin-flowtype": "^2.45.0"
   },
   "devDependencies": {
     "babel-preset-airbnb": "^2.4.0",
