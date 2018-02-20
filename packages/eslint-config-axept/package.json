@@ -4,9 +4,9 @@
   "description": "Axept's JS ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "prelint": "editorconfig-tools check * rules/* test/*",
+    "prelint": "editorconfig-tools check * rules/*",
     "lint": "eslint .",
-    "tests-only": "babel-tape-runner ./test/test-*.js",
+    "tests-only": "echo Tests not implemented yet.",
     "prepublish": "(in-install || eslint-find-rules --unused) && (not-in-publish || npm test) && safe-publish-latest",
     "pretest": "npm run --silent lint",
     "test": "npm run --silent tests-only",
